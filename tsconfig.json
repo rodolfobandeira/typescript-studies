@@ -1,0 +1,11 @@
+{
+    "compilerOptions": {
+        "outDir": "dist/js",
+        "target": "ES6",
+        "noEmitOnError": true, // Don't compile if errors are showing up
+        "noImplicitAny": true // To avoid untyped data
+    },
+    "include": [
+        "app/**/*" // It could also be just: "app"
+    ]
+}
