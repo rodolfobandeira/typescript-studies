@@ -5,3 +5,6 @@ form.addEventListener('submit', event => {
     event.preventDefault();
     controller.add();
 });
+// const transactionsView = new TransactionsView
+// const template = transactionsView.template();
+// console.log(template);
