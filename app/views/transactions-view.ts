@@ -1,3 +1,5 @@
+import { Transactions } from "../models/transactions";
+
 export class TransactionsView {
 
     private element: HTMLElement;
@@ -5,7 +7,7 @@ export class TransactionsView {
         this.element = document.querySelector(selector);
     }
 
-    template(): string {
+    template(model: Transactions): string {
         return `
         <table class="table table-hover table-bordered">
             <thead>
@@ -15,12 +17,22 @@ export class TransactionsView {
                     <th>VALUE</th>
             </thead>
             <tbody>
+                ${model.list().map((transaction) => {
+                    return `
+                        <tr>
+                            <td>${new Intl.DateTimeFormat().format(transaction.date)}</td>
+                            <td>${transaction.quantity}</td>
+                            <td>${transaction.amount}</td>
+                        </tr>
+                    `;
+                }).join('')}
             </tbody>
         </table>
         `;
     }
 
-    update(): void {
-        this.element.innerHTML = this.template();
+    update(model: Transactions): void {
+        const template = this.template(model);
+        this.element.innerHTML = template;
     }
 }

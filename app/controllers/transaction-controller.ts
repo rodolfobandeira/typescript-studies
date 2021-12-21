@@ -13,7 +13,7 @@ export class TransactionController {
         this.inputDate = document.querySelector('#date');
         this.inputQuantity = document.querySelector('#quantity');
         this.inputAmount = document.querySelector('#amount');
-        this.transactionsView.update();
+        this.transactionsView.update(this.transactions);
     }
 
     add(): void {
@@ -25,8 +25,7 @@ export class TransactionController {
         // list that points to another area in memory.
         // Check "transactions.ts" to see the new rule there
         
-        console.log(this.transactions.list());
-
+        this.transactionsView.update(this.transactions);
         this.clearForm();
     }
 
