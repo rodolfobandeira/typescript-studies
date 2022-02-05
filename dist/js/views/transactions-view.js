@@ -1,7 +1,5 @@
-export class TransactionsView {
-    constructor(selector) {
-        this.element = document.querySelector(selector);
-    }
+import { View } from "./view.js";
+export class TransactionsView extends View {
     template(model) {
         return `
         <table class="table table-hover table-bordered">

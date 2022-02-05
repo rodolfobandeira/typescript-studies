@@ -1,5 +1,6 @@
 import { Transaction } from "../models/transaction.js";
 import { Transactions } from "../models/transactions.js";
+import { MessageView } from "../views/message-view.js";
 import { TransactionsView } from "../views/transactions-view.js";
 
 export class TransactionController {
@@ -8,6 +9,7 @@ export class TransactionController {
     private inputAmount: HTMLInputElement;
     private transactions = new Transactions();
     private transactionsView = new TransactionsView('#transactionsView');
+    private messageView = new MessageView('#messageView');
 
     constructor() {
         this.inputDate = document.querySelector('#date');
@@ -26,6 +28,7 @@ export class TransactionController {
         // Check "transactions.ts" to see the new rule there
         
         this.transactionsView.update(this.transactions);
+        this.messageView.update('Transaction successfully added.');
         this.clearForm();
     }
 

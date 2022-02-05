@@ -1,10 +1,12 @@
 import { Transaction } from "../models/transaction.js";
 import { Transactions } from "../models/transactions.js";
+import { MessageView } from "../views/message-view.js";
 import { TransactionsView } from "../views/transactions-view.js";
 export class TransactionController {
     constructor() {
         this.transactions = new Transactions();
         this.transactionsView = new TransactionsView('#transactionsView');
+        this.messageView = new MessageView('#messageView');
         this.inputDate = document.querySelector('#date');
         this.inputQuantity = document.querySelector('#quantity');
         this.inputAmount = document.querySelector('#amount');
@@ -19,6 +21,7 @@ export class TransactionController {
         // list that points to another area in memory.
         // Check "transactions.ts" to see the new rule there
         this.transactionsView.update(this.transactions);
+        this.messageView.update('Transaction successfully added.');
         this.clearForm();
     }
     createTransaction() {
